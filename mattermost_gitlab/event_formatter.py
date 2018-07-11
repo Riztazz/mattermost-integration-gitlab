@@ -176,7 +176,7 @@ class NoteEvent(BaseEvent):
              subtitle = '%s\'s comment has been commented on: %s' % (author_name, commit_id)
         else:
             subtitle = '%s%s - %s' % (symbol, note_id, parent_title)
-
+            
             description = add_markdown_quotes(self.data['object_attributes']['note'])
 
         text = '[%s](%s)\n*[%s](%s) commented on %s %s in [%s](%s) on [%s](%s)*\n %s' % (
