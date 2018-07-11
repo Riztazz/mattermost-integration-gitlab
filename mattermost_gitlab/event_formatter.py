@@ -117,7 +117,7 @@ class IssueEvent(BaseEvent):
         else:
             raise NotImplementedError("Unsupported action %s for issue event" % self.action)
 
-        text = '[%s](%s)\n*[Issue #%s](%s) %s by %s in [%s](%s) on [%s](%s)*\n %s' % (
+        text = '[%s](%s)\n*[Issue #%s](%s) %s by %s in [%s](%s) on [%s](%s)*\n' % (
             self.data['object_attributes']['title'],
             self.data['object_attributes']['url'],
             self.data['object_attributes']['iid'],
@@ -127,8 +127,7 @@ class IssueEvent(BaseEvent):
             self.data['repository']['name'],
             self.data['repository']['homepage'],
             self.data['object_attributes']['created_at'],
-            self.data['object_attributes']['url'],
-            description
+            self.data['object_attributes']['url']
         )
 
         base_url = self.data['repository']['homepage']
@@ -172,9 +171,9 @@ class NoteEvent(BaseEvent):
         subtitle = ''
         if note_type == 'commit':
              commit_id = self.data['commit']['id']
-             commit_id = commit_id[:6]
+             commit_id = commit_id[:8]
              author_name = self.data['commit']['author']['name']
-             subtitle = '%s\'s comment has been commented on: \n %s' % (author_name, commit_id)
+             subtitle = '%s\'s comment has been commented on: %s' % (author_name, commit_id)
         else:
             subtitle = '%s%s - %s' % (symbol, note_id, parent_title)
 
