@@ -31,7 +31,8 @@ def add_markdown_quotes(text):
 
     if not text:
         return ''
-
+    
+    text = text[:200]
     split_desc = text.split('\n')
 
     for index, line in enumerate(split_desc):
@@ -177,9 +178,7 @@ class NoteEvent(BaseEvent):
         else:
             subtitle = '%s%s - %s' % (symbol, note_id, parent_title)
 
-        description = self.data['object_attributes']['note]
-        description = description[:200]
-        description = add_markdown_quotes(description)
+            description = add_markdown_quotes(self.data['object_attributes']['note'])
 
         text = '[%s](%s)\n*[%s](%s) commented on %s %s in [%s](%s) on [%s](%s)*\n %s' % (
             subtitle,
