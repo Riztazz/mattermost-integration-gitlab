@@ -114,7 +114,7 @@ class IssueEvent(BaseEvent):
         else:
             raise NotImplementedError("Unsupported action %s for issue event" % self.action)
 
-        text = '#### [%s](%s)\n*[Issue #%s](%s) %s by %s in [%s](%s) on [%s](%s)*\n %s' % (
+        text = '[%s](%s)\n*[Issue #%s](%s) %s by %s in [%s](%s) on [%s](%s)*\n %s' % (
             self.data['object_attributes']['title'],
             self.data['object_attributes']['url'],
             self.data['object_attributes']['iid'],
@@ -174,7 +174,7 @@ class NoteEvent(BaseEvent):
 
         description = add_markdown_quotes(self.data['object_attributes']['note'])
 
-        text = '#### **New Comment** on [%s](%s)\n*[%s](%s) commented on %s %s in [%s](%s) on [%s](%s)*\n %s' % (
+        text = '**New Comment** on [%s](%s)\n*[%s](%s) commented on %s %s in [%s](%s) on [%s](%s)*\n %s' % (
             subtitle,
             self.data['object_attributes']['url'],
             self.data['user']['username'],
