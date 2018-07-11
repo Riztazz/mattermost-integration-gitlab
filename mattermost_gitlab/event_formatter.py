@@ -177,7 +177,9 @@ class NoteEvent(BaseEvent):
         else:
             subtitle = '%s%s - %s' % (symbol, note_id, parent_title)
 
-        description = add_markdown_quotes(self.data['object_attributes']['note'])
+        description = self.data['object_attributes']['note]
+        description = description[:200]
+        description = add_markdown_quotes(description)
 
         text = '[%s](%s)\n*[%s](%s) commented on %s %s in [%s](%s) on [%s](%s)*\n %s' % (
             subtitle,
