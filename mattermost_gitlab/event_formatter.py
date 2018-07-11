@@ -32,7 +32,9 @@ def add_markdown_quotes(text):
     if not text:
         return ''
     
-    text = text[0:200]
+    if text.length > 200
+        text = text[0:200] + "..."
+
     split_desc = text.split('\n')
 
     for index, line in enumerate(split_desc):
