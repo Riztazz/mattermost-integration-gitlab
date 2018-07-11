@@ -37,7 +37,7 @@ def add_markdown_quotes(text):
     split_desc = text.split('\n')
 
     for index, line in enumerate(split_desc):
-        split_desc[index] = ' \t' + line
+        split_desc[index] = ' ' + line
 
     return_text = '\n'.join(split_desc)
     return_text = "` " + return_text + " `"
