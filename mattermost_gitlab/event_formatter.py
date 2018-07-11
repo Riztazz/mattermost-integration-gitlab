@@ -32,7 +32,7 @@ def add_markdown_quotes(text):
     if not text:
         return ''
     
-    text = (text[:200] + '..') if len(text) > 200 else data
+    text = (text[:200] + '..') if len(text) > 200 else text
 
     split_desc = text.split('\n')
 
