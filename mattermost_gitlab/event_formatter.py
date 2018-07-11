@@ -171,7 +171,6 @@ class NoteEvent(BaseEvent):
 
         subtitle = ''
         if note_type == 'commit':
-            commit_id = self.data['commit']['id']
             subtitle = '%s\'s commit has been commented on: ' % (author_name)
         else:
             subtitle = '%s%s - %s' % (symbol, note_id, parent_title)
